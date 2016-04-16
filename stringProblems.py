@@ -1,6 +1,8 @@
 def reversStr(str):
     return str[::-1]
-
+#The above solution is simple, clean and uses python features of stepping
+#Not sure how efficient python works on this.
+#My hunch is that it is pretty quick
 print reversStr('kjhsdf')
 print reversStr('aba')
 print reversStr('skweksowksowks')
