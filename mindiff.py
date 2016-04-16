@@ -15,7 +15,7 @@
 # Minimum difference is between 1 and -4
 def minDiff(intArr):
     #sorted inbuilt function in python
-    #complexity currently unknown
+    #complexity is O(nlogn)
     sortArr = sorted(intArr)
     #once sorted, complexity is O(n)
     min = sortArr[1] - sortArr[0]
