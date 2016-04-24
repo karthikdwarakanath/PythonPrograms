@@ -4,6 +4,10 @@
 #    forms a container, such that the container contains the most water.
 # #
 # # Note: You may not slant the container.
+# This is also known as the skyline problem.
+#optimal solution is O(nlogn)
+#solution should involve sorting the heights and another pass
+#to get the max x axis difference
 
 class Solution(object):
     def maxArea(self, height):
