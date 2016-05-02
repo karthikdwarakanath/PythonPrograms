@@ -1,0 +1,75 @@
+Notes for Python
+
+Exceptions:
+================================================================================
+#To define own exception
+class MyException(Exception):
+    pass
+
+Exception inherits from BaseException
+
+Eg:
+try:
+    body
+except IndexError as e:
+    print e
+except LookupError as l:
+    print l
+    //Except statements are checked in sequence
+    //Better to list them out with the lowest subclass
+    //IndexError is a subclass of LookupError
+    //inverting this order means IndexError will be handled by LookupError
+    //instead of by IndexError
+except:
+// seldom used since it catches everything
+else:
+// seldom used
+// is executed only if try executes correctly
+finally:
+//seldom used
+// always executed
+//if exception not caught here, finally is executed before the exception
+// is sent up the call stack
+--------------------------------------------------------------------------------
+Assert
+A way to raise exception when __debug__ is True
+env variable PYTHONOPTIMIZE=TRUE disables asserts
+also disabled when python is run with -O or -OO option
+Easy to debug code and turn it off for production without changing code
+
+eg:
+x = [1,2,3,4]
+assert len(x) > 5
+//Assert is raised when expression evaluates to false
+
+--------------------------------------------------------------------------------
+raise
+To specifically raise an exception in try code
+raise IndexError('Example of Index error')
+
+--------------------------------------------------------------------------------
+with
+with is a context manager and can be used with files
+files are to be opened, read/write and closed
+with can be used with files just for the duration of usage
+eg:
+with open(filname) as fp:
+    data = fp.read()
+
+dont have to explicitly close the file while using with
+
+
+================================================================================
+================================================================================
+
+Classes:
+================================================================================
+
+class MyClass:
+    pi = 3.14 #This is a class variable
+    def __init__(self, radius):
+        self.radius = radius #instance variable
+
+c = MyClass(1)
+c.__class__.pi // this is a class variable
+c.radius
