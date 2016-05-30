@@ -17,12 +17,7 @@ class Solution(object):
         if not head.next:
             return head
         prev = None
-        ptr = head
-        while ptr.next != None:
-            fwd = ptr.next
-            ptr.next = prev
-            prev = ptr
-            ptr = fwd
-        ptr.next = prev
-        head = ptr
+        while head.next != None:
+            fwd, head.next, prev, head = head.next, prev, head, fwd
+        head.next = prev
         return head
