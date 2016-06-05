@@ -4,6 +4,31 @@
 #                          , should print and remove the inverted last row
 #                          , should print and remove the inverted first column
 # Do the above until the matrix is empty
+def printSpiral2(intMatrix, r, c):
+    k ,l ,m, n = 0, 0, r-1, c-1
+    #k - first row
+    #l - first column
+    #m - last row
+    #n - last column
+    printList = []
+    while k <= m and l <= n:
+        for i in range(l, n+1):
+            printList.append(intMatrix[k][i])
+        k+=1
+        for i in range(k, m+1):
+            printList.append(intMatrix[i][n])
+        n-=1
+        if k<m:
+            for i in range(n, l-1, -1):
+                printList.append(intMatrix[m][i])
+            m-=1
+        if l<n:
+            for i in range(m, k-1, -1):
+                printList.append(intMatrix[i][l])
+            l+=1
+    print ",".join(printList)
+    return
+
 def printSpiral(intMatrix):
     #main list to be printed after matrix is emptied
     printList = []
@@ -93,10 +118,10 @@ def getSpiral():
         if len(intMatrix[i]) < c:
             print "Matrix incomplete"
             return None
-    return intMatrix
+    return intMatrix, r, c
 
-iMatrix = getSpiral()
-printSpiral(iMatrix)
+iMatrix, r, c = getSpiral()
+printSpiral2(iMatrix, r, c)
 
 #Testcases:
 #test 1:
