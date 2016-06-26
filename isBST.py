@@ -8,14 +8,16 @@ class Node(object):
         self.left = None
         self.right = None
 
-def isBST(root):
-    return isBSTHelper(root, min, max)
 
-def isBSTHelper(curr, min, max):
-    if curr.left:
-        if curr.left.value < min or not isBSTHelper(curr.left, min, curr.value):
-            return False
-    if curr.right:
-        if curr.right.value > max or not isBSTHelper(curr.right, curr.value, max):
-            return False
-    return True
+NEGINF=float("infinity")
+INF = float("-infinity")
+
+def isBST(root):
+    return isBSTHelper(root, NEGINF, INF)
+
+def isBSTHelper(root, minVal, maxVal):
+    if not root:
+        return True
+    if not (minVal <= root.value <= maxVal):
+        return False
+    return isBSTHelper(root.left, minVal, root.value) and isBSTHelper(root.right, root.value, maxVal)
