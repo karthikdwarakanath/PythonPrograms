@@ -5,13 +5,13 @@ def dfs(root, val):
    if root.val == val:
       return True
    if root:
-      qu.enqueue(root)
+      qu.append(root)
    while not qu.empty():
       node = qu.dequeue
       if node:
          visit(node)
          if node.val == value:
             return True
-         qu.enqueue(node.left)
-         qu.enqueue(node.right)
+         qu.append(node.left)
+         qu.append(node.right)
     return False
