@@ -16,7 +16,7 @@ def findFreq(inputArr, start, end, resultArr):
     if inputArr[start] == inputArr[end]:
         resultArr[inputArr[start]] += end - start + 1
     else:
-        mid = start/2 + end/2
+        mid = start + (end - start)/2
         findFreq(inputArr, start, mid, resultArr)
         findFreq(inputArr, mid+1, end, resultArr)
     return resultArr
