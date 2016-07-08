@@ -23,15 +23,20 @@ def findInterval(intervalList):
             intervalArr[index2] -= 1
     intervalStart = -1
     intervalEnd = -1
-    sum = 0
-    for i in range(len(intervalArr)):
+    sum = intervalArr[0]
+    if sum == 0:
+        intervalStart = 0
+        intervalEnd = 1
+    for i in range(1, len(intervalArr)):
         sum += intervalArr[i]
-        if sum == 0 and intervalStart < 0:
+        if sum == 0 and intervalStart < 0 and (i+1 < endMaxTime - i+1):
             intervalStart = i
             intervalEnd = i+1
         elif sum == 0 and intervalStart >= 0 and (i+1 < endMaxTime - i+1):
             intervalEnd = i+1
+    if intervalStart == -1 and intervalEnd == -1:
+        return False
     return intervalStart+8, intervalEnd+8
 
 
-print findInterval([[(8,10), (11,12), (12,14), (15,16)], [(8,9), (10,11), (11,13), (15,16)]])
+print findInterval([[(8,10), (11,12), (12,13), (15,16)], [(8,9), (10,11), (11,13), (15,16)]])
